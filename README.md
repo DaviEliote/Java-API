@@ -1,83 +1,71 @@
 Product API – Java Spring Boot
+This project provides a simple in-memory REST API for managing products. It allows you to create, retrieve, update, and delete products using a basic Spring Boot structure.
 
-Este projeto expõe uma API REST simples para gerenciamento de produtos em memória. Ele permite criar, consultar, atualizar e excluir produtos, utilizando uma estrutura básica com Spring Boot.
+🚀 Available Endpoints
+GET /product/getAllProducts
+Description: Returns all products stored in memory.
 
----
+Response: ArrayList<Product>
 
-## Endpoints disponíveis
+GET /product/getProductById
+Description: Returns a specific product by the provided ID.
 
-### `GET /product/getAllProducts`
-- **Descrição**: Retorna todos os produtos armazenados em memória.
-- **Resposta**: `ArrayList<Product>`
+Expected request body (JSON):
 
----
 
-### `GET /product/getProductById`
-- **Descrição**: Retorna um produto específico a partir do `id` enviado.
-- **Body esperado (JSON)**:
-```json
 {
   "id": 1
 }
+Response: Optional<Product>
 
--- Resposta: Optional<Product>
+PUT /product/updateProduct
+Description: Updates an existing product with the provided data.
+
+Expected request body (JSON):
 
 
-
-## PUT /product/updateProduct
-Descrição: Atualiza um produto existente com os dados enviados.
-
-Body esperado (JSON):
-
-json
-Copiar
-Editar
 {
   "id": 1,
-  "name": "Produto Atualizado",
+  "name": "Updated Product",
   "price": 99.99
 }
-Resposta: Lista atualizada de produtos (ArrayList<Product>)
-
-
-
+Response: Updated list of products (ArrayList<Product>)
 
 POST /product/postProduct
-Descrição: Adiciona um novo produto à lista em memória.
+Description: Adds a new product to the in-memory list.
 
-Body esperado (JSON):
+Expected request body (JSON):
 
-json
-Copiar
-Editar
+
 {
   "id": 1,
-  "name": "Novo Produto",
+  "name": "New Product",
   "price": 49.99
 }
-Resposta: HTTP 201 Created (sem corpo)
-
-
-
+Response: HTTP 201 Created (no body)
 
 DELETE /product/deleteAllProducts
-Descrição: Remove todos os produtos da lista.
+Description: Deletes all products from the list.
 
-Resposta: HTTP 200 OK
+Response: HTTP 200 OK
 
-🛠️ Tecnologias utilizadas
+
+
+Technologies Used
 Java
 
 Spring Boot
 
 Spring Web
 
-📁 Estrutura básica do projeto
-ProductController – Camada REST
+📁 Basic Project Structure
 
-ProductService – Camada de serviço
+ProductController – REST Controller layer
 
-ProductDTO – Objeto de transferência de dados
+ProductService – Service layer
 
-Product – Modelo de domínio
+ProductDTO – Data Transfer Object
 
+Product – Domain Model
+
+This project is for educational purposes only(Not JPA) and stores data in memory during execution.
